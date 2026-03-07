@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neo-bg: #0B0C10;
+  --neo-surface: #111217;
+  --neo-cyan: #00F0FF;
+  --neo-magenta: #FF2D95;
+  --neo-lime: #B7FF00;
+  --neo-gray: #A6A6A6;
+}
+
+* { box-sizing: border-box; margin:0; padding:0 }
+
+html, body { height:100%; width:100%; }
+
+body {
+  background: var(--neo-bg);
+  color: white;
+  font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Background texture: subtle noise + diagonal shapes */
+body::before{
+  content:''; position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255,45,149,0.04), transparent 15%),
+    radial-gradient(circle at 90% 90%, rgba(0,240,255,0.03), transparent 20%),
+    linear-gradient(120deg, rgba(255,255,255,0.02) 0%, transparent 35%);
+}
+
+/* CRT scanlines */
+body::after{
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; mix-blend-mode:overlay;
+  background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 100% 3px;
+  opacity:0.25;
+}
+
+/* Utilities for neon glows */
+.neon-outline{ box-shadow: 0 0 18px rgba(0,240,255,0.08), inset 0 0 8px rgba(255,45,149,0.02); }
+.neon-border-cyan{ border: 2px solid rgba(0,240,255,0.15); }
+.neon-glow-cyan{ box-shadow: 0 6px 30px rgba(0,240,255,0.08); }
+
+/* Headings */
+h1,h2,h3{ font-family:'Anton', 'Space Grotesk', sans-serif; letter-spacing:-0.02em }
+
+/* Focus and accessibility */
+:focus{ outline: 3px solid rgba(0,240,255,0.12); outline-offset:3px }
+
+/* Inputs adjusted for brutalist postcard */
+input, textarea { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06)); border-radius:10px; border:1px solid rgba(255,255,255,0.06); padding:0.75rem }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth }
+
+/* ensure sections aren't hidden behind fixed mobile header */
+section { scroll-margin-top: 5rem }
+
+@keyframes slideInFromTop {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-in {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.fade-in { animation-name: fadeIn; }
+.slide-in-from-top-4 { animation-name: slideInFromTop; }
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 380px) {
+  h1 { font-size: 2.5rem !important; }
+  .max-w-6xl { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+}
