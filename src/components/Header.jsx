@@ -52,7 +52,7 @@ export const Header = () => {
 
         <div className="space-y-3">
           <a
-            href="Documents/Sonal_Resume.pdf"
+            href="Documents/Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-3 py-2 bg-neo-cyan text-black font-bold rounded-sm justify-center"
@@ -90,7 +90,7 @@ export const Header = () => {
           ))}
           <div className="pt-4 pb-2">
             <a
-              href="Documents/Sonal_Resume.pdf"
+              href="/Documents/Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center w-full py-3 bg-neo-cyan text-black font-bold rounded-sm shadow-lg"

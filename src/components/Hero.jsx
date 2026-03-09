@@ -33,6 +33,8 @@ export const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center justify-center gap-3 bg-neo-cyan text-black font-bold px-8 py-4 rounded-sm shadow-[0_0_20px_rgba(0,240,255,0.3)] transition-all"
                 href="/Documents/Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Resume <ArrowRight size={20} />
               </motion.a>

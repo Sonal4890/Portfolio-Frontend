@@ -13,7 +13,7 @@ export const Contact = () => {
     e.preventDefault();
     setStatus('loading');
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/send-email`, formData);
+      await axios.post(`${import.meta.env.VITE_API_URL}/send-email`, formData);
       setStatus('success');
       setNotice('Message sent!');
       setFormData({ name: '', email: '', message: '' });
